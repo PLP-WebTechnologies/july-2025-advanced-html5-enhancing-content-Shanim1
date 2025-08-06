@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Enhanced Form — Products & Orders</title>
+  <meta name="description" content="Product listing, media spotlight and an accessible HTML5 contact & order form with native validation." />
+  <style>
+    :root{
+      --bg:#f5f7fb; --card:#fff; --muted:#666; --accent:#0366d6;
+      --radius:8px; --gap:16px; font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+    }
+    body{background:var(--bg); margin:0; padding:24px; color:#222;}
+    .container{max-width:980px; margin:0 auto; display:grid; gap:24px;}
+    header, section, footer{background:var(--card); padding:18px; border-radius:var(--radius); box-shadow:0 1px 6px rgba(16,24,40,.06);}
+    h1,h2{margin:0 0 8px 0;}
+    p{margin:.25rem 0 1rem 0; color:var(--muted);}
+    /* Lists */
+    ul{margin:0 0 1rem 1.25rem;}
+    /* Table */
+    table{width:100%; border-collapse:collapse; margin-top:8px;}
+    caption{font-weight:700; text-align:left; padding:6px 0;}
+    th, td{padding:8px 10px; border:1px solid #e6e9ef; text-align:left;}
+    thead th{background:#f1f5f9;}
+    /* Media visuals */
+    figure{margin:0 0 12px 0;}
+    img{max-width:100%; height:auto; display:block; border-radius:6px;}
+    /* Form */
+    form{display:grid; gap:12px;}
+    fieldset{border:1px solid #e6e9ef; padding:12px; border-radius:6px;}
+    legend{font-weight:700; padding:0 6px;}
+    .form-row{display:grid; grid-template-columns:1fr 1fr; gap:12px;}
+    label{display:block; font-size:.95rem; margin-bottom:6px;}
+    input[type="text"], input[type="email"], input[type="tel"], input[type="number"], input[type="date"],
+    select, textarea{width:100%; padding:8px; border:1px solid #cbd5e1; border-radius:6px; box-sizing:border-box;}
+    input[readonly]{background:#f3f4f6;}
+    .small{font-size:.9rem; color:var(--muted);}
+    button{background:var(--accent); color:#fff; padding:10px 14px; border:none; border-radius:6px; cursor:pointer;}
+    button:disabled{opacity:.6; cursor:not-allowed;}
+    .inline {display:inline-block; margin-right:10px;}
+    @media (max-width:640px){
+      .form-row{grid-template-columns:1fr;}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <header>
+      <h1>Enhanced Form — Products & Orders</h1>
+      <p class="small">A clean demonstration of lists, tables, media, and a fully validated HTML5 form (no JavaScript).</p>
+    </header>
+
+    <!-- Section 1 = list of our products -->
+    <section aria-labelledby="featured-products">
+      <h2 id="featured-products">Our Featured Products</h2>
+      <p class="small">Explore our latest offerings grouped by category.</p>
+
+      <h3>Categories</h3>
+      <ul>
+        <li>
+          Electronics
+          <ul>
+            <li>Smartphones</li>
+            <li>Laptops</li>
+            <li>Tablets</li>
+          </ul>
+        </li>
+
+        <li>
+          Clothing
+          <ul>
+            <li>Men's Wear</li>
+            <li>Women's Wear</li>
+            <li>Kids' Wear</li>
+          </ul>
+        </li>
+
+        <li>
+          Home Appliances
+          <ul>
+            <li>Kitchen Appliances</li>
+            <li>Living Room Appliances</li>
+            <li>Bedroom Appliances</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Section 2 = table of product prices -->
+    <section aria-labelledby="pricing-table">
+      <h2 id="pricing-table">Product Pricing Table</h2>
+      <p class="small">Check out the prices and availability for some popular smartphones.</p>
+
+      <table aria-describedby="price-note">
+        <caption>Price list — Popular Smartphones</caption>
+        <thead>
+          <tr>
+            <th scope="col">Brand</th>
+            <th scope="col">Model</th>
+            <th scope="col">Price (Ksh)</th>
+            <th scope="col">Availability</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Samsung</td>
+            <td>Galaxy S24</td>
+            <td>25,000</td>
+            <td>In Stock</td>
+          </tr>
+          <tr>
+            <td>Apple</td>
+            <td>iPhone 15</td>
+            <td>80,000</td>
+            <td>Out of Stock</td>
+          </tr>
+          <tr>
+            <td>Xiaomi</td>
+            <td>Redmi Note</td>
+            <td>18,500</td>
+            <td>Limited</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p id="price-note" class="small">Prices are indicative and may change. Contact us to confirm stock and delivery.</p>
+    </section>
+
+    <!-- Section 3 = Media: images, audio & video -->
+    <section aria-labelledby="media-spotlight">
+      <h2 id="media-spotlight">Spotlight — Images & Video</h2>
+
+      <figure>
+        <img src="https://via.placeholder.com/920x360.png?text=Samsung+S24" alt="Samsung S24 product image">
+        <figcaption>Samsung Galaxy S24 — product highlight image.</figcaption>
+      </figure>
+
+      <figure>
+        <!-- audio sample (placeholder file name) -->
+        <audio controls preload="none">
+          <source src="sample-audio.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+        <figcaption>Product jingle / audio sample.</figcaption>
+      </figure>
+
+      <figure>
+        <!-- YouTube embed via iframe (semantic and widely supported) -->
+        <iframe
+          width="560" height="315"
+          src="https://www.youtube.com/embed/xjQFhdx1EbA"
+          title="Samsung S24 review"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+        <figcaption>Samsung S24 review (YouTube).</figcaption>
+      </figure>
+
+      <figure>
+        <iframe
+          width="560" height="315"
+          src="https://www.youtube.com/embed/Xb2KgFu7fW8"
+          title="iPhone review"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+        <figcaption>iPhone review (YouTube).</figcaption>
+      </figure>
+    </section>
+
+    <!-- Section 4 = Contact and Order Form -->
+    <section aria-labelledby="order-form">
+      <h2 id="order-form">Contact & Order Form</h2>
+      <p class="small">Fill the form to place an order or send a message. Native HTML5 validation is used — no JavaScript required.</p>
+
+      <!--
+        Note:
+        - The form action is "#" for demo; replace with your server endpoint for production.
+        - novalidate is intentionally NOT used so browser validation works.
+      -->
+      <form action="#" method="post" autocomplete="on" novalidate>
+        <!-- General / Contact -->
+        <fieldset>
+          <legend>Contact Information</legend>
+
+          <div class="form-row">
+            <div>
+              <label for="fullname">Full name <span aria-hidden="true">*</span></label>
+              <input
+                id="fullname"
+                name="fullname"
+                type="text"
+                placeholder="Jane Doe"
+                autocomplete="name"
+                required
+                minlength="3"
+                aria-required="true">
+            </div>
+
+            <div>
+              <label for="email">Email address <span aria-hidden="true">*</span></label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                placeholder="you@example.com"
+                autocomplete="email"
+                required
+                aria-required="true">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div>
+              <label for="phone">Phone number</label>
+              <input
+                id="phone"
+                name="phone"
+                type="tel"
+                placeholder="+254712345678"
+                autocomplete="tel"
+                pattern="^\+?\d{8,15}$"
+                title="Include country code, digits only (8–15 characters).">
+              <p class="small">Format: +2547XXXXXXXX (8–15 digits allowed).</p>
+            </div>
+
+            <div>
+              <label for="dob">Preferred delivery date</label>
+              <input id="dob" name="dob" type="date" min="2025-08-07" aria-describedby="date-help">
+              <p id="date-help" class="small">Select a delivery date (no earlier than tomorrow).</p>
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- Order details -->
+        <fieldset>
+          <legend>Order Details</legend>
+
+          <!-- a readonly order id to show use of readonly attribute -->
+          <label for="order-id">Order ID (auto-generated)</label>
+          <input id="order-id" name="order-id" type="text" value="ORD-20250806-001" readonly aria-readonly="true">
+
+          <label for="product">Select product <span aria-hidden="true">*</span></label>
+          <select id="product" name="product" required>
+            <option value="">— Choose a product —</option>
+            <option value="samsung-s24">Samsung Galaxy S24</option>
+            <option value="iphone-15">iPhone 15</option>
+            <option value="laptop-pro">Laptop Pro 14"</option>
+          </select>
+
+          <div class="form-row">
+            <div>
+              <label for="quantity">Quantity <span aria-hidden="true">*</span></label>
+              <input
+                id="quantity"
+                name="quantity"
+                type="number"
+                required
+                min="1"
+                max="10"
+                value="1"
+                step="1"
+                aria-required="true">
+            </div>
+
+            <div>
+              <label for="unit-price">Unit price (Ksh)</label>
+              <input id="unit-price" name="unit-price" type="number" placeholder="25000" min="0" step="1" aria-describedby="price-note">
+              <p id="price-note" class="small">Enter unit price if different from listed price (optional).</p>
+            </div>
+          </div>
+
+          <label for="notes">Order notes / delivery instructions</label>
+          <textarea id="notes" name="notes" rows="4" placeholder="Any additional details..." maxlength="500"></textarea>
+        </fieldset>
+
+        <!-- Payment & confirmation -->
+        <fieldset>
+          <legend>Payment & Confirmation</legend>
+
+          <p class="small">Choose a payment method:</p>
+          <div>
+            <input class="inline" type="radio" id="pay-mpesa" name="payment" value="mpesa" required>
+            <label for="pay-mpesa" class="inline">M-Pesa</label>
+
+            <input class="inline" type="radio" id="pay-card" name="payment" value="card">
+            <label for="pay-card" class="inline">Card (Visa/Mastercard)</label>
+
+            <input class="inline" type="radio" id="pay-cod" name="payment" value="cod">
+            <label for="pay-cod" class="inline">Cash on Delivery</label>
+          </div>
+
+          <div style="margin-top:10px;">
+            <label for="email-terms">
+              <input type="checkbox" id="email-terms" name="email-terms" required>
+              I agree to receive order emails and confirm the details above are correct.
+            </label>
+            <p class="small">You must accept terms to submit the order.</p>
+          </div>
+        </fieldset>
+
+        <!-- Submit -->
+        <div>
+          <button type="submit">Submit Order</button>
+        </div>
+      </form>
+    </section>
+
+    <footer>
+      <p class="small">&copy; 2025 Example Shop — Contact: <a href="mailto:sales@example.com">sales@example.com</a></p>
+    </footer>
+
+  </div>
+</body>
+</html>
